@@ -5,4 +5,8 @@ from django.http import HttpResponse
 
 
 def home(response):
-    return HttpResponse("<h1>Hello</h1>")
+    return render(response, "cafes/home.html")
+
+
+def index(response):
+    return render(response, "cafes/base.html")
