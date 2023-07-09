@@ -1,14 +1,16 @@
 {% extends 'cafes/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block header %} Share best cafes with others {% endblock %}
 
 {% block content %}
+<div class="container p-4">
 <h1>Add New Cafe</h1>
 <form method="post", action="/add_new/">
   {% csrf_token %}
-  {{form.as_p}}
-  <button type="submit", name="save">Add</button>
+  {{ form|crispy }}
+  <button class="btn btn-success" type="submit", name="save">Add</button>
 </form>
-
+</div>
 
 {% endblock %}
