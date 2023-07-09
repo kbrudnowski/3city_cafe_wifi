@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Cafes
 from .forms import CreateNewList
 
@@ -15,7 +15,6 @@ def add_cafe(response):
         form = CreateNewList(response.POST)
 
         if form.is_valid():
-
             c = Cafes(
                 name=form.cleaned_data['name'],
                 photo=form.cleaned_data['photo'],
@@ -24,6 +23,7 @@ def add_cafe(response):
                 work_conditions=form.cleaned_data['work_conditions']
             )
             c.save()
+            return redirect(home)
     else:
         form = CreateNewList()
     return render(response, "cafes/add.html", {'form': form})
