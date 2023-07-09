@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Cafes
 
 # Create your views here.
 
 
 def home(response):
-    return render(response, "cafes/home.html")
+    cafes = Cafes.objects.all()
+    return render(response, "cafes/home.html", {'cafes': cafes})
 
 
 def index(response):

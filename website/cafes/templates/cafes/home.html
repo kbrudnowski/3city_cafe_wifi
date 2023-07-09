@@ -14,15 +14,22 @@
         <div class="row probootstrap-animate">
           <div class="col-md-12">
             <div class="owl-carousel js-owl-carousel-2">
+
+              {% for cafe in cafes %}
+
               <div>
                 <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_2.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
+                  <img src="{{ cafe.photo }}" alt="Free Template by ProBootstrap" class="img-fluid">
                   <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                    <h5 class="mb-3">{{ cafe.name }}</h5>
+                    <p>Google Rating: {{ cafe.g_rating }}</p>
+                    <p>Working Conditions: {{cafe.work_conditions}}/5.0</p>
+                    <p><a href="{{ cafe.location}}" target="_blank">Location</a></p>
                   </div>
                 </div>
               </div>
+
+              {% endfor %}
               <!-- END slide item -->
 
               <div>
