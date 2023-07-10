@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Cafes
 from .forms import CreateNewList
-from django.contrib import messages
-
-# Create your views here.
 
 
 def home(response):
@@ -12,7 +9,7 @@ def home(response):
 
 
 def add_cafe(response):
-    if response.user.is_authenticated():
+    if response.user.is_authenticated:
         if response.method == "POST":
             form = CreateNewList(response.POST)
 
@@ -30,5 +27,4 @@ def add_cafe(response):
             form = CreateNewList()
         return render(response, "cafes/add.html", {'form': form})
     else:
-        messages.info(response, 'You need to be logged in to add new cafes.')
         return redirect(home)
