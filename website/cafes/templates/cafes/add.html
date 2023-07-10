@@ -4,11 +4,13 @@
 {% block header %} Share best cafes with others {% endblock %}
 
 {% block content %}
-<div class="container p-4">
-<h1>Add New Cafe</h1>
+<div class="container p-5">
+<h2>Add New Cafe</h2>
+  <br>
 <form method="post", action="/add_new/">
   {% csrf_token %}
   {{ form|crispy }}
+  <br>
   <button class="btn btn-success" type="submit", name="save">Add</button>
 </form>
 </div>
