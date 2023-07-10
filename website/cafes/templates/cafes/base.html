@@ -47,14 +47,20 @@
             
             <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Browse Cafes</a></li>
 
+              {% if user.is_authenticated %}
+
             <!-- Visible only for logged users -->
 
             <li class="nav-item"><a class="nav-link" href="{% url 'add_new' %}">Add New One</a></li>
-            <li class="nav-item"><a class="nav-link" href="">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+
+              {% else %}
 
             <!-- Not visible for logged users -->
 
             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login/Register</a></li>
+
+              {% endif %}
 
           </ul>
         </div>
