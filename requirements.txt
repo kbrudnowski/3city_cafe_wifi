@@ -6,3 +6,5 @@ sqlparse==0.4.4
 typing-extensions==4.7.1
 tzdata==2023.3
 wheel==0.38.4
+crispy-bootstrap4==2022.1
+django-crispy-forms==2.0

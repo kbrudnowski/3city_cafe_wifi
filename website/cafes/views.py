@@ -28,3 +28,8 @@ def add_cafe(response):
         return render(response, "cafes/add.html", {'form': form})
     else:
         return redirect(home)
+
+
+def delete_cafe(response, id):
+    Cafes.objects.all().get(id=id).delete()
+    return redirect(home)
